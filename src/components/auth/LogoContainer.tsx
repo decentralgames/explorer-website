@@ -1,5 +1,5 @@
 import React from 'react'
-import logoWhite from '../../images/logo-white.svg'
+import logoWhite from '../../images/logo.png'
 import './LogoContainer.css'
 
 export default React.memo(function LogoContainer(props: Partial<{ loading: boolean }>) {

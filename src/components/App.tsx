@@ -6,11 +6,7 @@ import LoginContainer from './auth/LoginContainer'
 import { StoreType } from '../state/redux'
 import { isElectron } from '../integration/desktop'
 import { SHOW_WALLET_SELECTOR } from '../integration/url'
-import { BeginnersGuide } from './auth/BeginnersGuide'
-import { BigFooter } from './common/Layout/BigFooter'
-import BannerContainer from './banners/BannerContainer'
 import { LoadingRender } from './common/Loading/LoadingRender'
-import { Navbar } from './common/Layout/Navbar'
 import {
   FeatureFlags,
   isWaitingForRenderer,
@@ -99,17 +95,15 @@ const App: React.FC<AppProps> = (props) => {
 
   return (
     <div className={`WebsiteApp ${props.hasBanner ? 'withBanner' : ''}`}>
-      <BannerContainer />
       {/**
        * The audio tag is required to prevent the tab from halting the scripting if left unfocused
        * @see https://github.com/decentraland/explorer-website/pull/333#discussion_r1084094994
        * @see https://github.com/eordano/background-throttle
        */}
       {!isElectron() && props.sound && <Audio track={`${process.env.PUBLIC_URL}/tone4.mp3`} play />}
-      {!isElectron() && <Navbar />}
+      
       <LoginContainer />
-      {!isElectron() && <BeginnersGuide />}
-      {!isElectron() && <BigFooter />}
+      
     </div>
   )
 }

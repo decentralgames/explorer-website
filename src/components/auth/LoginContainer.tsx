@@ -9,8 +9,6 @@ import { authenticate } from '../../kernel-loader'
 import { EthWalletSelector } from './EthWalletSelector'
 import { LoginGuestItem, LoginWalletItem } from './LoginItemContainer'
 import LogoContainer from './LogoContainer'
-import { DownloadDesktopToast } from '../download/DownloadDesktopToast'
-import { DownloadModal } from '../download/DownloadModal'
 import { isElectron } from '../../integration/desktop'
 import { disconnect } from '../../eth/provider'
 import { track } from '../../utils/tracking'
@@ -180,7 +178,7 @@ export const LoginContainer: React.FC<LoginContainerProps & LoginContainerDispat
             <LoginGuestItem loading={loading} active={isGuest} onClick={handleGuestLogin} />
           )}
         </div>
-        <DownloadDesktopToast />
+       
       </Container>
 
       <EthWalletSelector
@@ -194,7 +192,7 @@ export const LoginContainer: React.FC<LoginContainerProps & LoginContainerDispat
         onClose={handleCloseSelector}
       />
 
-      {!isElectron() && <DownloadModal />}
+      
     </Main>
   )
 }

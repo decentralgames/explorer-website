@@ -2,7 +2,7 @@ import React from 'react'
 import { ProviderType } from '@dcl/schemas/dist/dapps/provider-type'
 import { Button } from 'decentraland-ui/dist/components/Button/Button'
 import { Loader } from 'decentraland-ui/dist/components/Loader/Loader'
-import guest from '../../images/guest.jpg'
+import guest from '../../images/guest.png'
 import wallets from '../../images/wallet-img.png'
 import { EthConnectAdvice } from './EthConnectAdvice'
 import './LoginItemContainer.css'
@@ -44,9 +44,9 @@ export const LoginItemContainer = React.memo(
 
 export const LoginWalletItem = React.memo((props: LoginItemContainerProps) => (
   <LoginItemContainer {...props} className={`LoginWalletItem ${props.className || ''}`}>
-    <img alt="wallets" src={wallets} width="318" className="wallet-img" />
+    <img alt="wallets" src={wallets} width="240" className="wallet-img" />
     <h2>Play using your wallet</h2>
-    <p>Connect your account to fully enjoy Decentraland!</p>
+    <p>Connect your account to fully enjoy Decentral Games!</p>
     <Button
       primary
       size="huge"
@@ -60,7 +60,7 @@ export const LoginWalletItem = React.memo((props: LoginItemContainerProps) => (
 
 export const LoginGuestItem = React.memo((props: LoginItemContainerProps) => (
   <LoginItemContainer {...props} className={`LoginGuestItem ${props.className || ''}`}>
-    <img alt="guest" src={guest} width="318" height="318" />
+    <img alt="guest" src={guest} width="240" height="240" />
     <h2>Play as guest</h2>
     <p>Your information will be locally stored and your experience limited.</p>
     <Button

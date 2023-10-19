@@ -49,6 +49,13 @@
   min-width: auto;
 }
 
+.ui.huge.primary.button {
+  background-image: linear-gradient(116.34deg, #7B48E8 0%, #39ACE7 50.52%) !important;
+
+}
+
+
+
 .LoginItemContainer .LoginItemContainer__BackLayer,
 .LoginItemContainer .LoginItemContainer__Content {
   width: 100%;
@@ -58,7 +65,7 @@
 
 .LoginItemContainer .LoginItemContainer__BackLayer {
   position: absolute;
-  background: linear-gradient(116.34deg, #FFBC5B 0%, #FF2D55 50.52%, #C640CD 100%);
+  background: linear-gradient(116.34deg, #7B48E8 0%, #39ACE7 50.52%);
   padding: 4px;
   box-sizing: border-box;
   box-shadow: 0 5px 5px rgba(0,0,0,.4);
@@ -143,14 +150,15 @@
 
 .LoginItemContainer .LoginItemContainer__Content img {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 40px;
+  top: 40px;
   transform: translate(11px, 60px);
   transition: transform ease .3s;
 }
 
 .LoginItemContainer .LoginItemContainer__Content .wallet-img {
   top: 35px;
+  left: 30px;
 }
 
 .LoginItemContainer.active .LoginItemContainer__Content img,

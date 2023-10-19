@@ -15,7 +15,8 @@ import {
 import { ErrorType, store } from '../state/redux'
 import { ChainId } from '@dcl/schemas/dist/dapps/chain-id'
 import { ProviderType } from '@dcl/schemas/dist/dapps/provider-type'
-import { FeatureFlagsResult, fetchFlags } from '@dcl/feature-flags'
+// import { FeatureFlagsResult, fetchFlags } from '@dcl/feature-flags'
+import { FeatureFlagsResult } from '@dcl/feature-flags'
 import { resolveUrlFromUrn } from '@dcl/urn-resolver'
 import { defaultWebsiteErrorTracker, defaultKernelErrorTracker, track } from '../utils/tracking'
 import { injectVersions } from '../utils/rolloutVersions'
@@ -215,8 +216,25 @@ async function getVersions(flags: FeatureFlagsResult) {
 async function initKernel() {
   const container = document.getElementById('gameContainer') as HTMLDivElement
 
-  const flags = await fetchFlags({ applicationName: 'explorer' })
+//  const explorerFeatureFlags = 'http://192.168.0.21:3000'
 
+
+
+/*   const flags = await fetchFlags({ applicationName: 'explorer' }) */
+
+// GABE CHANGE
+let flags;
+  try {
+    const response = await fetch('/explorer.json');
+    if (response.ok) {
+      flags = await response.json();
+    } else {
+      console.error('Error loading explorer.json', response.status, response.statusText);
+    }
+  } catch (err) {
+    console.error('Error fetching explorer.json', err);
+  }
+// GABE CHANGE
   await getVersions(flags)
 
   const kernel = await injectKernel({

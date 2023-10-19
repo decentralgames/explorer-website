@@ -1,8 +1,8 @@
 .Main > .eth-container {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 128px);
-  margin: 128px auto 64px;
+  height: calc(100% - 250px);
+  margin: 0px auto 75px;
   justify-content: space-between;
   position: relative;
 }
