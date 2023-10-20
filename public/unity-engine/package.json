@@ -2,9 +2,7 @@
   "name": "@dcl/explorer",
   "main": "index.js",
   "typings": "index.d.ts",
-  "version": "1.0.131583-20230718133624.commit-7106e1f",
-  "commit": "7106e1fbee008e77ef28204d973d869c5a90316d",
-  "branch": "main",
+  "version": "1.0.0-development-20200220202020.commit-",
   "author": "Decentraland Contributors",
   "license": "Apache-2.0",
   "publishConfig": {
