@@ -9,13 +9,13 @@
     "start:production": "serve -s ./build",
     "start:linked": "cross-env NODE_ENV=development react-app-rewired --openssl-legacy-provider start",
     "build": "cross-env NODE_ENV=production GENERATE_SOURCEMAP=true react-app-rewired --openssl-legacy-provider build && npm run copy-cdn",
-    "build:full": "npm run copy:unity:static && npm run build && npm run copy-cdn",
-    "build:unity": "cd ../unity-renderer/browser-interface && npm run build",
+    "build:pre-compiled": "npm run copy:unity:node_modules && npm run build",
+    "build:compile-unity": "cd ../unity-renderer/browser-interface && npm run copy:unity:static && npm run build",
     "copy:unity:node_modules": "shx cp -r ./node_modules/@dcl/explorer/* ./public/unity-engine",
     "copy:unity:static": "shx mkdir -p ./build && shx cp -r ../unity-renderer/browser-interface/static/* ./public/unity-engine",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "postinstall": "node ./scripts/hash_generator.js && npm run build:full",
+    "postinstall": "node ./scripts/hash_generator.js && npm run build:pre-compiled",
     "copy-cdn": "node ./scripts/copy_cdn.js",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
@@ -42,7 +42,7 @@
     ]
   },
   "dependencies": {
-    "@dcl/explorer": "1.0.152291-20231017100112.commit-07d38e3",
+    "@dcl/explorer": "^1.0.131583-20230718133624.commit-7106e1f",
     "@dcl/feature-flags": "^1.2.0",
     "@dcl/kernel-interface": "^2.0.0-20230512115658.commit-b582e05",
     "@dcl/schemas": "^8.1.0",
@@ -64,6 +64,7 @@
     "react-scripts": "^4.0.3",
     "react-virtualized": "^9.22.5",
     "redux": "^4.0.5",
+    "shx": "0.3.4",
     "validator": "^13.7.0"
   },
   "devDependencies": {
