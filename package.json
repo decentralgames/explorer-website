@@ -15,8 +15,8 @@
     "copy:unity:static": "shx mkdir -p ./build && shx cp -r ../unity-renderer/browser-interface/static/* ./public/unity-engine",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "preinstall": "git submodule update --init && cd ../unity-renderer/browser-interface && npm install && echo '\n\ngit submodule prepared successfully\n\n' && cd ../../explorer-website && npm run build:compile-unity",
-    "postinstall": "node ./scripts/hash_generator.js",
+    "preinstall": "git submodule update --init && cd ../unity-renderer/browser-interface && npm install && echo '\n\ngit submodule prepared successfully\n\n'",
+    "postinstall": "node ./scripts/hash_generator.js && npm run build:compile-unity",
     "copy-cdn": "node ./scripts/copy_cdn.js",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
