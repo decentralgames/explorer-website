@@ -19,12 +19,12 @@ function copyPackage(packageName, envValueToCheck) {
   const resolvedCdnFolder = cdnFolder(name, version)
   const destFolder = distFolderRelative(resolvedCdnFolder)
 
-  if (envValueToCheck.replace(/\/$/, '') !== resolvedCdnFolder.replace(/\/$/, '')) {
+  if (envValueToCheck?.replace(/\/$/, '') !== resolvedCdnFolder?.replace(/\/$/, '')) {
     console.error(
       'ERROR: The values from the .env file does not match the values from the installed versions for the package ' +
         packageName
     )
-    console.log(envValueToCheck + ' != ' + resolvedCdnFolder)
+    console.log(`${envValueToCheck} != ${resolvedCdnFolder}`)
     console.log('CALL TO ACTION: Please run `npm run postinstall` and `npm run build`')
     process.exit(1)
   }

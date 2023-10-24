@@ -35,6 +35,10 @@ fs.writeFileSync(
     .join('\n') + '\n'
 )
 
+console.log('\n############################################\n' +
+    '.env file successfully created:\n')
+console.log(fs.readFileSync('.env').toString(), '\n############################################')
+
 publicPackageJson.homepage = packageJson.homepage
 publicPackageJson.version = packageJson.version
 
