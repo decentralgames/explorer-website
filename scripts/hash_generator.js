@@ -57,7 +57,7 @@ function getPublicUrls() {
         PUBLIC_URL: `https://explorer-artifacts.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
         REACT_APP_EXPLORER_BASE_URL: ``,
       }
-    } else if (process.env.CI) {
+    } else if (process.env.USE_CDN) {
       // master/main branch, also releases
       return {
         PUBLIC_URL: `https://cdn.decentraland.org/${packageJson.name}/${packageJson.version}`,
@@ -65,7 +65,9 @@ function getPublicUrls() {
       }
     }
   }
-  // localhost
+  // For builds that don't use the real CDN
+  // PUBLIC_URL is used for requesting static assets
+  // REACT_APP_EXPLORER_BASE_URL is used for requesting the decentraland kernel
   return {
     PUBLIC_URL: ``,
     REACT_APP_EXPLORER_BASE_URL: cdnFolder('@dcl/explorer', explorerVersion) + `/`,
