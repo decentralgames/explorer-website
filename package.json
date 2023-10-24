@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "",
   "scripts": {
+    "preinstall": "cd ../unity-renderer/browser-interface && npm install",
+    "postinstall": "node ./scripts/hash_generator.js && npm run build:compile-unity",
     "start": "react-app-rewired start",
     "start:production:ci": "serve -s ./build",
     "start:production:localhost": "npm run copy-cdn && serve -s ./build",
@@ -16,8 +18,6 @@
     "copy:unity:static": "shx mkdir -p ./build && shx cp -r ../unity-renderer/browser-interface/static/* ./public/unity-engine",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "preinstall": "cd ../unity-renderer/browser-interface && npm install",
-    "postinstall": "node ./scripts/hash_generator.js && npm run build:compile-unity",
     "copy-cdn": "node ./scripts/copy_cdn.js",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
