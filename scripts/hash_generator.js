@@ -16,6 +16,10 @@ const explorerVersion = JSON.parse(fs.readFileSync(require.resolve('@dcl/explore
 ENV_CONTENT['REACT_APP_WEBSITE_VERSION'] = packageJson.version
 ENV_CONTENT['REACT_APP_EXPLORER_VERSION'] = explorerVersion
 
+console.log('GEN_STATIC_LOCAL', process.env.GEN_STATIC_LOCAL);
+console.log('GITHUB_BASE_REF', process.env.GITHUB_BASE_REF);
+console.log('CI', process.env.CI);
+
 Object.assign(ENV_CONTENT, getPublicUrls())
 
 packageJson.homepage = ENV_CONTENT['PUBLIC_URL']
