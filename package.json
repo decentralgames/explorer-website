@@ -7,7 +7,7 @@
     "preinstall": "cd ../unity-renderer/browser-interface && npm install",
     "postinstall": "node ./scripts/hash_generator.js && npm run build:compile-unity",
     "start": "react-app-rewired start",
-    "start:production:ci": "serve -s ./build",
+    "start:production:ci": "npx serve -s ./build",
     "start:production:localhost": "npm run copy-cdn && serve -s ./build",
     "start:build:production": "npm run build && npm run start:production:localhost",
     "start:linked": "cross-env NODE_ENV=development react-app-rewired --openssl-legacy-provider start",
