@@ -11,7 +11,7 @@
     "start:production:localhost": "serve -s ./build",
     "start:build:production": "npm run build && npm run start:production:localhost",
     "start:linked": "cross-env NODE_ENV=development react-app-rewired --openssl-legacy-provider start",
-    "build": "cross-env NODE_ENV=production GENERATE_SOURCEMAP=true react-app-rewired --openssl-legacy-provider build && npm run copy-cdn",
+    "build": "cross-env NODE_ENV=production GENERATE_SOURCEMAP=true react-app-rewired --openssl-legacy-provider build",
     "build:pre-compiled": "npm run copy:unity:node_modules && npm run build",
     "build:compile-unity": "cd ../unity-renderer/browser-interface && npm run build && cd ../../explorer-website && npm run copy:unity:static && npm run build",
     "copy:unity:node_modules": "shx cp -r ./node_modules/@dcl/explorer/* ./public/unity-engine",

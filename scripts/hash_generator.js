@@ -70,6 +70,7 @@ function getPublicUrls() {
   // REACT_APP_EXPLORER_BASE_URL is used for requesting the decentraland kernel
   return {
     PUBLIC_URL: ``,
-    REACT_APP_EXPLORER_BASE_URL: cdnFolder('@dcl/explorer', explorerVersion) + `/`,
+    // REACT_APP_EXPLORER_BASE_URL: 'cdnFolder('@dcl/explorer', explorerVersion) + `/'`,
+    REACT_APP_EXPLORER_BASE_URL: 'unity-engine'
   }
 }
