@@ -5,7 +5,7 @@
   "homepage": "",
   "scripts": {
     "preinstall": "cd ../unity-renderer/browser-interface && npm install",
-    "postinstall": "node ./scripts/hash_generator.js && npm run build-unity:compile",
+    "postinstall": "node ./scripts/hash_generator.js",
     "start": "react-app-rewired start",
     "start:production:ci": "npx --yes serve -s ./build",
     "start:production:localhost": "serve -s ./build",
